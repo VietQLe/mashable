@@ -1,0 +1,40 @@
+<div class = 'btn-group'>
+		<% @channels.each do |category| %>
+			<button type = 'button' class = 'btn btn-default'>
+				<a href ='/category/<%= category %>'><%= category %></a>
+			</button>
+		<% end %>
+		
+		<div class="btn-group">
+    		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+      			Authors
+      			<span class="caret"></span>
+    		</button>
+
+    		<ul class="dropdown-menu">
+    			<% @authors.each do |author| %>
+      			<li><a href="/author/<%= author %>"><%= author %></a></li>
+     			<% end %>
+    		</ul>
+  		</div>
+
+  	</div>
+
+<% if @selected %>
+	<h2><%= @selected %></h2>
+	<% else %>
+	<h2>Stories</h2>
+<% end %>
+
+<ul>
+	<% @stories.each do |story| %>
+		<li>
+			<img src='<%= story['image'] %>' height = '100' >
+			<a href='<%= story['link'] %>' >
+				<%= story['title'] %>
+			</a>
+
+		</li>
+		<br />
+	<% end %>
+</ul> 
