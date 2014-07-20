@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'rest_client'
+require 'json'
 
 #call mashable api and returns json as a string
 	resp = RestClient.get('http://mashable.com/stories.json?new_per_page=100')
